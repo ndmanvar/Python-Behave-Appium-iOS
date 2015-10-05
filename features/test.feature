@@ -8,7 +8,6 @@ Feature: Calculating a sum using an iOS app
 
     Examples: Platforms
       | device_name       | app                                                |
-      | iPhone 6 Plus     | https://s3.amazonaws.com/appium/TestApp8.4.app.zip |
-      | iPhone 6          | https://s3.amazonaws.com/appium/TestApp8.4.app.zip |
+      | iPhone 6 Device   | sauce-storage:TestApp-iphoneos.app.zip             |
 
 
