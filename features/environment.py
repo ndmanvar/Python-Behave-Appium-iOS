@@ -4,9 +4,23 @@ from sauceclient import SauceClient
 
 username = os.environ.get('SAUCE_USERNAME')
 access_key = os.environ.get('SAUCE_ACCESS_KEY')
+url = 'http://%s:%s@ondemand.saucelabs.com:80/wd/hub' % (username, access_key)
 
 def before_scenario(context, scenario):
   context.name = scenario.name
+
+  desired_caps = {
+    "name": context.name,
+    "app": "sauce-storage:TestApp-iphoneos.app.zip",
+    "platformName": "iOS",
+    "deviceName": os.environ.get('deviceName'),
+    "browserName": "",
+    "platformVersion": "8.4",
+    "appiumVersion": "1.4.11",
+    "deviceOrientation": "portrait"
+  }
+  
+  context.driver = webdriver.Remote(url, desired_caps)
 
 def after_scenario(context, scenario):
   if hasattr(context, 'driver'):
