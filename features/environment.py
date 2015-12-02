@@ -11,7 +11,7 @@ def before_scenario(context, scenario):
 
   desired_caps = {
     "name": context.name,
-    "app": "https://s3.amazonaws.com/appium/TestApp8.4.app.zip",
+    "app": "sauce-storage:TestApp-iphoneos.app.zip",
     "platformName": "iOS",
     "deviceName": os.environ.get('deviceName'),
     "browserName": "",
